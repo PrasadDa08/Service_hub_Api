@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ProviderController;
+use App\Http\Controllers\Api\ProviderServiceController;
 use App\Http\Controllers\Api\ServiceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,8 @@ Route::middleware('auth:api')->group(function () {
 
     Route::middleware('provider')->group(function () {
         Route::post('/provider/profile', [ProviderController::class, 'providerProfile']);
+        Route::post('/services/add', [ProviderServiceController::class, 'store']);
+        Route::Put('/provider/services/{service}/update', [ProviderServiceController::class, 'update']);
     });
 
     Route::middleware('admin')->group(function () {

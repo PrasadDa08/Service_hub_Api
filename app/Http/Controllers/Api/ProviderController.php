@@ -19,7 +19,7 @@ class ProviderController extends Controller
 
 
         $user = auth('api')->user();
-        $provider = Provider::where('user_id', $user->id)->first();
+        $provider = Provider::where('user_id', '=',$user->id)->first();
 
         $provider->update([
             'experience' => $request->experience,

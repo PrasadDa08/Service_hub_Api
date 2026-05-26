@@ -15,7 +15,7 @@ class Provider extends Model
     }
 
     public function services() {
-        return $this->belongsToMany(Service::class, 'provider_servics')->withPivot('custom_price')->withTimestamps();
+        return $this->belongsToMany(Service::class, 'provider_services')->withPivot('custom_price')->withTimestamps();
     }
 
     public function bookings(){
